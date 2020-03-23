@@ -64,7 +64,7 @@ public class InstructionsParser {
                 case SETUP:
                     table.setCoordinates(tableXCord,tableYCord);
                     start = false;
-                    response = "Table setup Successfull | START to continue";
+                    response = UserMessages.ROBOT_SETUP_SUCCESSFUL;
                     break;
                 case START:
                     if(start){

@@ -10,6 +10,7 @@ public class UserMessages {
     public static String ROBOT_MOVED_MESSAGE = "Robot moved successfully to the position ";
     public static String ROBOT_MOVEMENT_FAILURE = "Movement cannot be done - Invalid positions";
     public static String ROBOT_INITILIZED =   "Robot has set up and initialized !!!";
+    public static String ROBOT_SETUP_SUCCESSFUL = "Table setup Successfull | START to continue";
 
     public static String WELCOME_MESSAGE =    "***************************Welcome to Robot Application***************************************************** \r\n";
     public static StringBuilder COMMAND_REFERENCE = new StringBuilder("***********************************************COMMAND-HELP***************************************************** \r\n")

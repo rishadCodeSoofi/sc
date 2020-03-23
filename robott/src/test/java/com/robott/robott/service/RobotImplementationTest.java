@@ -7,8 +7,8 @@ import com.robott.robott.entity.UserMessages;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import  org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,7 +22,7 @@ public class RobotImplementationTest {
     Table table;
 
     @org.junit.Test
-    public void moveTest() {
+    public void moveUPTest() {
         Commands instruction = Commands.MOVE;
         Directions direction = Directions.UP;
         int movementPositions =1;
@@ -52,6 +52,57 @@ public class RobotImplementationTest {
         robotImplementation.getXCoordinate();
         robotImplementation.getYCoordinate();
         assertTrue(robotImplementation.move(instruction, direction, movementPositions).contains(UserMessages.ROBOT_MOVEMENT_FAILURE));
+
+    }
+
+    @org.junit.Test
+    public void moveDOWNTest() {
+        Commands instruction = Commands.MOVE;
+        Directions direction = Directions.DOWN;
+        int movementPositions =1;
+
+        Mockito.doReturn(true).when(table).validCoordinates(5,4);
+
+
+        robotImplementation.initialize(5,5);
+        robotImplementation.getXCoordinate();
+        robotImplementation.getYCoordinate();
+        assertTrue(robotImplementation.move(instruction, direction, movementPositions).contains(UserMessages.ROBOT_MOVED_MESSAGE));
+
+
+    }
+
+    @org.junit.Test
+    public void moveLEFTTest() {
+        Commands instruction = Commands.MOVE;
+        Directions direction = Directions.LEFT;
+        int movementPositions =1;
+
+        Mockito.doReturn(true).when(table).validCoordinates(4,5);
+
+
+        robotImplementation.initialize(5,5);
+        robotImplementation.getXCoordinate();
+        robotImplementation.getYCoordinate();
+        assertTrue(robotImplementation.move(instruction, direction, movementPositions).contains(UserMessages.ROBOT_MOVED_MESSAGE));
+
+
+    }
+
+    @org.junit.Test
+    public void moveRightTest() {
+        Commands instruction = Commands.MOVE;
+        Directions direction = Directions.RIGHT;
+        int movementPositions =1;
+
+        Mockito.doReturn(true).when(table).validCoordinates(6,5);
+
+
+        robotImplementation.initialize(5,5);
+        robotImplementation.getXCoordinate();
+        robotImplementation.getYCoordinate();
+        assertTrue(robotImplementation.move(instruction, direction, movementPositions).contains(UserMessages.ROBOT_MOVED_MESSAGE));
+
 
     }
 

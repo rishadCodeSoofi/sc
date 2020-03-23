@@ -1,6 +1,7 @@
 package com.robott.robott.service;
 
 import com.robott.robott.entity.Table;
+import com.robott.robott.entity.UserMessages;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -47,10 +48,17 @@ public class InstructionsParserTest {
         assertEquals(true, instructionsParser.parsedInstructions("MOVE UP 1"));
     }
 
+
     @org.junit.Test
-    public void parsedInstructionsTestFail(){
-        assertEquals(false, instructionsParser.parsedInstructions("MOV UP 1"));
+    public void setUpTest(){
+        assertEquals(UserMessages.ROBOT_SETUP_SUCCESSFUL, instructionsParser.process("SETUP 200 200"));
     }
+
+    @org.junit.Test
+    public void helpTest(){
+        assertEquals(UserMessages.COMMAND_REFERENCE.toString(), instructionsParser.process("HELP"));
+    }
+
 
    /* @org.junit.Test
     public void processCommandMoveUPSuccess(){
